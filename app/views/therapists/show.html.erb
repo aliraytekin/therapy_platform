@@ -1,9 +1,8 @@
 <div class="container my-5">
   <div class="row">
     <div class="col-md-4 text-center">
-      <% if @therapist.avatar.attached? %>
-        <%= image_tag @therapist.avatar.variant(resize_to_fill: [300, 300]),
-                      class: "rounded-circle mb-3 shadow-sm" %>
+      <% if @therapist.respond_to?(:photo) && @therapist.photo&.attached? %>
+        <%= cl_image_tag therapist.photo.key, width: 400, height: 250, crop: :fill, gravity: :auto, class: "rounded-circle mb-3 shadow-sm" %>
       <% else %>
         <%= image_tag "default_avatar.png", size: "300x300", class: "rounded-circle mb-3 shadow-sm" %>
       <% end %>

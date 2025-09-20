@@ -30,8 +30,8 @@
       <% @therapists.each do |therapist| %>
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="card shadow-sm h-100">
-            <% if therapist.avatar.attached? %>
-              <%= image_tag therapist.avatar.variant(resize_to_fill: [400, 250]), class: "card-img-top" %>
+            <% if therapist.photo.attached? %>
+              <%= cl_image_tag therapist.photo.key, width: 400, height: 250, crop: :fill, gravity: :auto, class: "card-img-top" %>
             <% else %>
               <%= image_tag "default_avatar.png", class: "card-img-top", size: "400x250" %>
             <% end %>

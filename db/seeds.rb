@@ -44,19 +44,19 @@ puts "Creating therapists with images..."
     name: Faker::Name.name,
     email: Faker::Internet.unique.email,
     password: "password",
-    specialty: SPECIALTIES.sample(2).join(", "),
+    specialty: Array(SPECIALTIES.sample(3).join(", ")),
     bio: BIOS.sample + " " + BIOS.sample,
-    languages: LANGUAGES.sample(rand(1..3)),
+    languages: Array(LANGUAGES.sample(3).join(", ")),
     consultation_fee: rand(120..230),
     location: Faker::Address.full_address,
     timezone: Faker::Address.time_zone
   )
 
-  photos = client.photos.search("portrait therapist", per_page: 50)
+  photos = client.photos.search("portrait psychiatrist", per_page: 50)
   puts photos
   if photos.any?
     photo = photos.photos.sample
-    file = URI.open(photo.src["medium"])
+    file = URI.open(photo.src["large"])
     therapist.photo.attach(io: file, filename: "therapist_#{therapist.id}.jpg", content_type: "image/jpg")
   end
 end
