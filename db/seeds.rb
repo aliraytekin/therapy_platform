@@ -70,7 +70,7 @@ therapists.each do |therapist|
     start_time = Faker::Time.forward(days: 10, period: :morning)
     therapist.availabilities.create!(
       start_time: start_time,
-      end_time: start_time + 1.hour
+      end_time: start_time + rand(1..4).hour
     )
   end
 end
@@ -86,7 +86,8 @@ puts "Creating sessions..."
       user: user,
       therapist: therapist,
       start_time: availability.start_time,
-      end_time: availability.end_time
+      end_time: availability.end_time,
+      duration: [30, 45, 60].sample
     )
   end
 end

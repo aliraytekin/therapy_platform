@@ -57,6 +57,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_20_135839) do
     t.integer "status", default: 0
     t.datetime "start_time"
     t.datetime "end_time"
+    t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["therapist_id"], name: "index_sessions_on_therapist_id"
