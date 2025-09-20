@@ -6,8 +6,10 @@ class Therapist < ApplicationRecord
 
   has_many :availabilities, dependent: :destroy
   has_many :sessions, dependent: :destroy
+  has_one_attached :avatar
+  has_one_attached :photo
 
-  validates :name, :specialty, :bio, :location, :languages, presence: true
+  validates :name, :specialty, :bio, :location, :languages, :consultation_fee, presence: true
 
   searchkick word_start: %i[name specialty bio location languages]
 

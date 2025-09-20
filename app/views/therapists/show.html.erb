@@ -1,0 +1,54 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <% if @therapist.avatar.attached? %>
+        <%= image_tag @therapist.avatar.variant(resize_to_fill: [300, 300]),
+                      class: "rounded-circle mb-3 shadow-sm" %>
+      <% else %>
+        <%= image_tag "default_avatar.png", size: "300x300", class: "rounded-circle mb-3 shadow-sm" %>
+      <% end %>
+
+      <h3 class="fw-bold"><%= @therapist.name %></h3>
+      <p class="text-muted"><%= @therapist.location %></p>
+      <p class="text-bold"> €<%= @therapist.consultation_fee %> per hour</p>
+      <p><strong>Languages:</strong> <%= (@therapist.languages).join(", ") %></p>
+    </div>
+
+    <div class="col-md-8">
+      <h4 class="fw-bold mb-3">About</h4>
+      <p><%= simple_format(@therapist.bio) %></p>
+
+      <h5 class="fw-bold mt-4">Specialties</h5>
+      <p><%= (@therapist.specialty).join(", ") %></p>
+
+      <% if user_signed_in? %>
+        <hr class="my-4">
+
+        <h5 class="fw-bold">Book a Session</h5>
+        <%= form_with model: [@therapist, Session.new], local: true do |f| %>
+          <div class="mb-3">
+            <%= f.text_field :start_time,
+              class: "form-control",
+              data: {
+                controller: "datepickr",
+                datetime_disabled_value: @disabled_slots.to_json
+              },
+              placeholder: "Select date & time" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :duration, "Duration (minutes)", class: "form-label" %>
+            <%= f.select :duration, options_for_select([30,45,60], 60), {}, class: "form-control" %>
+          </div>
+
+          <%= f.submit "Book Session", class: "btn btn-primary" %>
+        <% end %>
+      <% elsif therapist_signed_in? && current_therapist == @therapist %>
+        <hr class="my-4">
+      <% else %>
+        <hr class="my-4">
+        <p class="text-muted">Log in as a user to book a session.</p>
+      <% end %>
+    </div>
+  </div>
+</div>

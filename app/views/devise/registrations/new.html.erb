@@ -29,6 +29,11 @@
         <%= f.label :languages, "", class: "form-label fw-semibold" %>
         <%= f.text_field :languages, placeholder: "Please seperate languages by commas", class: "form-control rounded-pill" %>
       </div>
+
+      <div class="mb-3">
+        <%= f.label :consultation_fee, "Consultation fee (per hour in €)", class: "form-label fw-semibold" %>
+        <%= f.number_field :consultation_fee, placeholder: "e.g. 150", class: "form-control rounded-pill" %>
+      </div>
     <% end %>
 
     <div class="mb-3">
@@ -47,6 +52,11 @@
     <div class="mb-4">
       <%= f.label :password_confirmation, class: "form-label fw-semibold" %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded-pill" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :avatar, "Profile picture", class: "form-label fw-semibold" %>
+      <%= f.file_field :avatar, class: "form-control" %>
     </div>
 
     <div class="d-grid">

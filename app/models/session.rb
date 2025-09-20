@@ -1,6 +1,6 @@
 class Session < ApplicationRecord
   belongs_to :therapist
-  belongs_to :patient
+  belongs_to :user
 
   enum status: { pending: 0, confirmed: 1, cancelled: 2 }
 

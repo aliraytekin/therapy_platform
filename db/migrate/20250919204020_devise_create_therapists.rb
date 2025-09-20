@@ -3,13 +3,11 @@
 class DeviseCreateTherapists < ActiveRecord::Migration[7.1]
   def change
     create_table :therapists do |t|
-      ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-
-      t.string :full_name
-      t.string :specialty
+      t.string :specialty, array: true, default: []
       t.string :timezone
+      t.float :consultation_fee
 
       ## Recoverable
       t.string   :reset_password_token
