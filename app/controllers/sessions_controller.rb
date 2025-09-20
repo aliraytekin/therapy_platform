@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :set_session, only: %i[edit update destroy]
+
   def create
     @therapist = Therapist.find(params[:therapist_id])
     @session = @therapist.sessions.build(sessions_params)
@@ -16,16 +18,25 @@ class SessionsController < ApplicationController
   end
 
   def update
-    if @session.update(event_params)
+    if @session.update(sessions_params)
       redirect_to @session, notice: "The session was successfully updated."
     else
-      render @session, status: :unprocessable_content
+      render "therapists/show", status: :unprocessable_content
     end
+  end
+
+  def destroy
+    @session.destroy
+    redirect_to therapist_path(@session.therapist), notice: "Session was successfully deleted."
   end
 
   private
 
+  def set_session
+    @session = Session.find(params[:id])
+  end
+
   def sessions_params
-    params.require(:session).permit(:consultation_fee, :start_time, :end_time, :duration)
+    params.require(:session).permit(:consultation_fee, :start_time, :duration)
   end
 end

@@ -11,6 +11,8 @@ class Session < ApplicationRecord
   private
 
   def within_availability
+    return unless therapist
+
     return if therapist.availabilities
                         .where("start_time <= ? AND end_time >= ?", start_time, end_time)
                         .exists?
@@ -19,6 +21,8 @@ class Session < ApplicationRecord
   end
 
   def no_overlap
+    return unless therapist
+
     if therapist.sessions
       .where("start_time < ? AND end_time > ?", end_time, start_time)
       .exists?
