@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <%= link_to "Therapy Platform", root_path, class: "navbar-brand fw-bold" %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= image_tag(current_user.avatar_url || "default_avatar.png",
+                            class: "rounded-circle me-2",
+                            size: "32x32") %>
+              <span><%= current_user.first_name || "Profile" %></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %></li>
+              <li><%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "btn primary-outline-button primary-button" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: "btn primary-button ms-lg-2 my-2 my-lg-0" %>
+          </li>
+        <% end %>
+
+        <li class="nav-item ms-lg-3">
+          <%= link_to "Therapist space", new_therapist_registration_path, class: "btn secondary-outline-button my-2 my-lg-0" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
