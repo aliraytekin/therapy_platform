@@ -1,0 +1,32 @@
+<div class="container my-5" style="max-width: 500px;">
+  <h2 class="text-center mb-4">Log in</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "signup-form p-4 shadow rounded bg-white" }) do |f| %>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <%= f.label :email, class: "form-label fw-semibold" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-pill" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :password, class: "form-label fw-semibold" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control rounded-pill" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="form-check mb-3">
+        <%= f.check_box :remember_me, class: "form-check-input" %>
+        <%= f.label :remember_me, class: "form-check-label" %>
+      </div>
+    <% end %>
+
+    <div class="d-grid">
+      <%= f.submit "Log in", class: "btn primary-button btn-lg rounded-pill shadow-sm" %>
+    </div>
+  <% end %>
+
+  <div class="text-center mt-3">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
