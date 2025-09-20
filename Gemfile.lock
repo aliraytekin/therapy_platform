@@ -131,6 +131,8 @@ GEM
       multi_json
     erb (5.0.2)
     erubi (1.13.1)
+    factory_bot (6.5.4)
+      activesupport (>= 6.1.0)
     faker (3.5.2)
       i18n (>= 1.8.11, < 2)
     faraday (2.13.4)
@@ -323,6 +325,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
+    shoulda-matchers (6.5.0)
+      activesupport (>= 5.2.0)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
       logger
@@ -379,6 +383,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   elasticsearch (~> 8.8)
+  factory_bot
   faker
   httpparty
   importmap-rails
@@ -391,6 +396,7 @@ DEPENDENCIES
   sassc-rails
   searchkick
   selenium-webdriver
+  shoulda-matchers (~> 6.0)
   sprockets-rails
   stimulus-rails
   turbo-rails

@@ -41,7 +41,7 @@
             <%= f.select :duration, options_for_select([30,45,60], 60), {}, class: "form-control" %>
           </div>
 
-          <%= f.submit "Book Session", class: "btn btn-primary" %>
+          <%= f.submit "Book Session", class: "btn primary-button" %>
         <% end %>
       <% elsif therapist_signed_in? && current_therapist == @therapist %>
         <hr class="my-4">

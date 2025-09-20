@@ -6,6 +6,7 @@ class CreateSessions < ActiveRecord::Migration[7.1]
       t.integer :status, default: 0
       t.datetime :start_time
       t.datetime :end_time
+      t.integer :duration
 
       t.timestamps
     end

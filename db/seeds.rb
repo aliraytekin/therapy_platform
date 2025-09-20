@@ -86,7 +86,8 @@ puts "Creating sessions..."
       user: user,
       therapist: therapist,
       start_time: availability.start_time,
-      end_time: availability.end_time
+      end_time: availability.end_time,
+      duration: [30, 45, 60].sample
     )
   end
 end

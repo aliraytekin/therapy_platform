@@ -26,6 +26,6 @@ class SessionsController < ApplicationController
   private
 
   def sessions_params
-    params.permit(:session).require(:consultation_fee, :start_time, :end_time, :duration)
+    params.require(:session).permit(:consultation_fee, :start_time, :end_time, :duration)
   end
 end
