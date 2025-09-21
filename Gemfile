@@ -72,8 +72,10 @@ end
 
 gem "devise"
 gem 'sassc-rails'
+gem "elasticsearch", "~> 7.17"
+gem "elasticsearch-transport", "~> 7.17"
+gem "elasticsearch-api", "~> 7.17"
 gem "searchkick"
-gem "elasticsearch", "~> 8.8"
 gem "faker"
 gem "cloudinary"
 gem "httpparty"
