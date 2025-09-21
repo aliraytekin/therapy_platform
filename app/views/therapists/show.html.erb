@@ -30,7 +30,8 @@
               <li class="list-group-item">
                 <span data-controller="local-time" class="slot-time"
                   data-local-time-start-value="<%= slot.start_time.utc.iso8601 %>"
-                  data-lcoal-time-end-value="<%= slot.end_time.utc.iso8601 %>">
+                  data-local-time-end-value="<%= slot.end_time.utc.iso8601 %>">
+
                 </span>
 
               </li>
@@ -42,7 +43,19 @@
 
 
         <h5 class="fw-bold">Book a Session</h5>
-        <%= form_with model: [@therapist, Session.new], local: true do |f| %>
+        <%= form_with model: [@therapist, @session], local: true do |f| %>
+
+          <% if f.object.errors.any? %>
+            <div class="alert alert-danger" role="alert">
+              <h5 class="alert-heading">Please fix the following:</h5>
+              <ul class="mb-0">
+                <% f.object.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
           <div class="mb-3">
             <%= f.text_field :start_time,
               class: "form-control",

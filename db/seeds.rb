@@ -76,10 +76,11 @@ therapists.each do |therapist|
 end
 
 puts "Creating sessions..."
+
 20.times do
   therapist = therapists.sample
   user = users.sample
-  availability = therapist.availabilities.sample
+  availability = therapist.availabilities.where(booked: false).sample
 
   if availability
     Session.create!(
@@ -89,6 +90,7 @@ puts "Creating sessions..."
       end_time: availability.end_time,
       duration: [30, 45, 60].sample
     )
+    availability.update!(booked: true)
   end
 end
 

@@ -2,6 +2,7 @@ class CreateAvailabilities < ActiveRecord::Migration[7.1]
   def change
     create_table :availabilities do |t|
       t.references :therapist, null: false, foreign_key: true
+      t.boolean :booked, default: false
       t.datetime :start_time
       t.datetime :end_time
 

@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_09_20_135839) do
 
   create_table "availabilities", force: :cascade do |t|
     t.bigint "therapist_id", null: false
+    t.boolean "booked", default: false
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at", null: false
