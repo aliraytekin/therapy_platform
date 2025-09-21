@@ -9,9 +9,9 @@ let bubbles = [];
 class Bubble {
   constructor() {
     this.x = Math.random() * canvas.width;
-    this.y = canvas.height + Math.random() * 100; // start offscreen
+    this.y = canvas.height + Math.random() * 100;
     this.radius = 5 + Math.random() * 15;
-    this.speed = 0.5 + Math.random() * 1;
+    this.speed = 0.2 + Math.random() * 1;
     this.opacity = 0.1 + Math.random() * 0.3;
   }
   draw() {
