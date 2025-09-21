@@ -52,7 +52,7 @@ puts "Creating therapists with images..."
     timezone: Faker::Address.time_zone
   )
 
-  photos = client.photos.search("portrait psychiatrist", per_page: 50)
+  photos = client.photos.search("portrait mental health professional therapist", per_page: 50)
   puts photos
   if photos.any?
     photo = photos.photos.sample

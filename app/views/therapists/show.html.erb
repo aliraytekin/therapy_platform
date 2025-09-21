@@ -23,14 +23,29 @@
       <% if user_signed_in? %>
         <hr class="my-4">
 
+        <h5 class="fw-bold mt-4">Availabilities</h5>
+        <% if @availabilities.any? %>
+          <ul class="list-group mb-3">
+            <% @availabilities.each do |slot| %>
+              <li class="list-group-item">
+                <%= slot.start_time.strftime("%A, %B %d %Y %H:%M") %> →
+                <%= slot.end_time.strftime("%H:%M") %>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p class="text-muted">No availabilities at the moment.</p>
+        <% end %>
+
+
         <h5 class="fw-bold">Book a Session</h5>
         <%= form_with model: [@therapist, Session.new], local: true do |f| %>
           <div class="mb-3">
             <%= f.text_field :start_time,
               class: "form-control",
               data: {
-                controller: "datepickr",
-                datetime_disabled_value: @disabled_slots.to_json
+                controller: "tempus-dominus",
+                tempus_dominus_disabled_hours_value: @disabled_slots.to_json
               },
               placeholder: "Select date & time" %>
           </div>

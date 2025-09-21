@@ -15,12 +15,7 @@ class TherapistsController < ApplicationController
 
   def show
     @therapist = Therapist.find(params[:id])
-
-    @disabled_slots = @therapist.sessions.map do |s|
-    {
-      from: s.start_time.strftime("%Y-%m-%d %H:%M"),
-      to:   s.end_time.strftime("%Y-%m-%d %H:%M")
-    }
-    end
+    @availabilities = @therapist.availabilities.order(:start_time)
+    @disabled_slots = @therapist.disabled_hours
   end
 end

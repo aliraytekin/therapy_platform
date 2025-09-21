@@ -22,4 +22,14 @@ class Therapist < ApplicationRecord
       languages: languages
     }
   end
+
+  def disabled_hours
+    all_hours = (0..23).to_a
+
+    available_hours = availabilities.flat_map do |slot|
+      (slot.start_time.hour...slot.end_time.hour).to_a
+    end
+
+    all_hours - available_hours
+  end
 end
