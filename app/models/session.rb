@@ -17,7 +17,7 @@ class Session < ApplicationRecord
                         .where("start_time <= ? AND end_time >= ?", start_time, end_time)
                         .exists?
 
-    errors.add(:base, "This session is outside therapist's availability")
+    errors.add(:base, "This timeframe is outside the therapist's availability")
   end
 
   def no_overlap
