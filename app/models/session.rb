@@ -8,7 +8,13 @@ class Session < ApplicationRecord
   validate :within_availability
   validate :no_overlap
 
+  # after_create :change_availability
+
   private
+
+  # def change_availability
+  #   therapist.availabilities.map { |a| a.update!(booked: true) }
+  # end
 
   def within_availability
     return unless therapist
