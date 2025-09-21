@@ -1,26 +1,26 @@
 import { Controller } from "@hotwired/stimulus";
-import { TempusDominus } from "@eonasdan/tempus-dominus";
+import { TempusDominus, DateTime } from "@eonasdan/tempus-dominus";
 
 export default class extends Controller {
-  static values = { disabledHours: Array }
+  static values = { disabledSlots: Array }
 
   connect() {
-    new TempusDominus(this.element, {
+    const disabledRanges = this.disabledSlotsValue.map(({ from, to }) => ({
+      from: new DateTime(from),
+      to:   new DateTime(to)
+    }));
+
+    console.log("TD disabled ranges:", disabledRanges);
+
+    this.picker = new TempusDominus(this.element, {
       useCurrent: false,
       display: {
-        components: {
-          calendar: true,
-          clock: true,
-          hours: true,
-          minutes: true,
-        }
+        components: { calendar: true, clock: true, hours: true, minutes: true }
       },
       restrictions: {
-        disabledHours: this.disabledHoursValue
+        disabledTimeIntervals: disabledRanges
       },
-      localization: {
-        format: 'yyyy-MM-dd HH:mm'
-      }
+      localization: { format: "yyyy-MM-dd HH:mm" }
     });
   }
 }

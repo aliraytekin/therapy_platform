@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
     @session.user = current_user
     @session.end_time = @session.start_time + @session.duration.minutes
 
+    set_therapist_data
+
     if @session.save
       redirect_to @therapist, notice: "The session was created successfully"
     else
@@ -18,6 +20,8 @@ class SessionsController < ApplicationController
   end
 
   def update
+    set_therapist_data
+
     if @session.update(sessions_params)
       redirect_to @session, notice: "The session was successfully updated."
     else
@@ -31,6 +35,11 @@ class SessionsController < ApplicationController
   end
 
   private
+
+  def set_therapist_data
+    @availabilities = @therapist.availabilities.order(:start_time)
+    @disabled_slots = @therapist.disabled_slots
+  end
 
   def set_session
     @session = Session.find(params[:id])
