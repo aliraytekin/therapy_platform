@@ -122,13 +122,14 @@ GEM
       dotenv (= 3.1.8)
       railties (>= 6.1)
     drb (2.2.3)
-    elastic-transport (8.4.0)
-      faraday (< 3)
+    elasticsearch (7.17.11)
+      elasticsearch-api (= 7.17.11)
+      elasticsearch-transport (= 7.17.11)
+    elasticsearch-api (7.17.11)
       multi_json
-    elasticsearch (8.19.1)
-      elastic-transport (~> 8.3)
-      elasticsearch-api (= 8.19.1)
-    elasticsearch-api (8.19.1)
+    elasticsearch-transport (7.17.11)
+      base64
+      faraday (>= 1, < 3)
       multi_json
     erb (5.0.2)
     erubi (1.13.1)
@@ -403,7 +404,9 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
-  elasticsearch (~> 8.8)
+  elasticsearch (~> 7.17)
+  elasticsearch-api (~> 7.17)
+  elasticsearch-transport (~> 7.17)
   factory_bot
   factory_bot_rails
   faker
