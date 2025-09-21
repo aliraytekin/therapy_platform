@@ -1,4 +1,6 @@
-<div class="bg-primary text-white py-5">
+<canvas id="bubbles"></canvas>
+
+<div class="bg-primary gradient-flow text-white py-5">
   <div class="container text-center">
     <h1 class="display-4 fw-bold mb-3">
       Your mental health, your safe space.
@@ -10,11 +12,12 @@
     <div class="container my-4">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-          <%= form_with url: therapists_path, method: :get, local: true, class: "d-flex gap-2" do |f| %>
+          <%= form_with url: therapists_path, method: :get, data: { turbo_frame: "therapists_results" }, local: true, class: "d-flex gap-2" do |f| %>
             <%= f.text_field :query,
                       value: params[:query],
                       class: "form-control rounded-xl",
-                      placeholder: "Search by name, specialty, language, or location..." %>
+                      data: { controller: "autosubmit", action: "input->autosubmit#input" },
+                      placeholder: "Search by name, specialty, or location..." %>
             <button class="btn secondary-button px-4" type="submit">
               Search
             </button>
@@ -24,37 +27,11 @@
     </div>
   </div>
 </div>
+
 <div class="container mt-4">
-  <% if @therapists.any? %>
-    <div class="row">
-      <% @therapists.each do |therapist| %>
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="card shadow-sm h-100">
-            <%= link_to therapist do %>
-              <% if therapist.photo.attached? %>
-                <%= cl_image_tag therapist.photo.key, class: "card-img" %>
-              <% else %>
-                <%= image_tag "default_avatar.png", class: "card-img", size: "400x250" %>
-              <% end %>
-            <% end %>
 
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title fw-bold"><%= link_to therapist.name, therapist_path(therapist), class: "text-decoration-none" %></h5>
-              <p class="mb-1"><strong>Specialties:</strong> <%= (therapist.specialty).join(", ") %></p>
-              <p class="mb-1"><strong>Location:</strong> <%= therapist.location %></p>
-              <p class="mb-1"><strong>Languages:</strong> <%= (therapist.languages).join(", ") %></p>
-              <p class="text-muted mt-2"><%= truncate(therapist.bio, length: 100) %></p>
-              <%= link_to "View Profile", therapist_path(therapist), class: "btn btn-outline-primary mt-auto" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
+  <turbo-frame id="therapists_results">
+    <%= render partial: "therapists/list", locals: { therapists: @therapists } %>
+  </turbo-frame>
 
-    <div class="d-flex justify-content-center mt-4">
-      <%= paginate @therapists %>
-    </div>
-  <% else %>
-    <p class="text-center text-muted">No therapists found. Try adjusting your search.</p>
-  <% end %>
 </div>
