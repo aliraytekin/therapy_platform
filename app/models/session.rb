@@ -13,12 +13,28 @@ class Session < ApplicationRecord
   private
 
   def change_availability
-    return unless start_time
-
     availability = therapist.availabilities
-                            .where("DATE_TRUNC('minute', start_time) = ?", start_time.change(sec: 0))
+                            .where("start_time <= ? AND end_time >= ?", start_time, end_time)
                             .first
-    availability&.update!(booked: true)
+    return unless availability
+
+    Availability.transaction do
+      availability.destroy!
+
+      if availability.start_time < start_time
+        therapist.availabilities.create!(
+          start_time: availability.start_time,
+          end_time: start_time
+        )
+      end
+
+      if availability.end_time > end_time
+        therapist.availabilities.create!(
+          start_time: end_time,
+          end_time: availability.end_time
+        )
+      end
+    end
   end
 
 
