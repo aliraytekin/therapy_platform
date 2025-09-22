@@ -16,7 +16,7 @@ class TherapistsController < ApplicationController
   def show
     @therapist = Therapist.find(params[:id])
     @session = Session.new
-    @availabilities = @therapist.availabilities.order(:start_time)
+    @availabilities = @therapist.availabilities.order(:start_time).where(booked: false)
     @disabled_slots = @therapist.disabled_slots
   end
 end

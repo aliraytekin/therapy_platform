@@ -13,9 +13,14 @@ class Session < ApplicationRecord
   private
 
   def change_availability
-    availability = therapist.availabilities.find_by(start_time: start_time)
-    availability.update!(booked: true)
+    return unless start_time
+
+    availability = therapist.availabilities
+                            .where("DATE_TRUNC('minute', start_time) = ?", start_time.change(sec: 0))
+                            .first
+    availability&.update!(booked: true)
   end
+
 
   def within_availability
     return unless therapist
@@ -28,11 +33,12 @@ class Session < ApplicationRecord
   end
 
   def no_overlap
-    return unless therapist
+    return unless therapist && start_time && end_time
 
     if therapist.sessions
-      .where("start_time < ? AND end_time > ?", end_time, start_time)
-      .exists?
+            .where("start_time < ? AND end_time > ?", end_time, start_time)
+            .where.not(id: id)
+            .exists?
       errors.add(:base, "This slot is already taken")
     end
   end
