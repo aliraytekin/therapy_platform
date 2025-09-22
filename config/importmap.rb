@@ -10,3 +10,4 @@ pin "@popperjs/core", to: "@popperjs--core.js" # @2.11.8
 pin "bubbles", to: "bubbles.js"
 pin "litepicker" # @2.0.12
 pin "dayjs" # @1.11.18
+pin "flatpickr" # @4.6.13
