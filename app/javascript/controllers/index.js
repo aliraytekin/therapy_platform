@@ -7,14 +7,8 @@ import { application } from "./application"
 import AutosubmitController from "./autosubmit_controller"
 application.register("autosubmit", AutosubmitController)
 
-import DayjsController from "./dayjs_controller"
-application.register("dayjs", DayjsController)
-
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
 import LocalTimeController from "./local_time_controller"
 application.register("local-time", LocalTimeController)
-
-import TempusDominusController from "./tempus_dominus_controller"
-application.register("tempus-dominus", TempusDominusController)
