@@ -37,7 +37,6 @@ class Session < ApplicationRecord
     end
   end
 
-
   def within_availability
     return unless therapist
 
