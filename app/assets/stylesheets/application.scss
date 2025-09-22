@@ -1,8 +1,3 @@
-@import "bootstrap";
-
-@import "components/index";
-@import "pages/index";
-
 $primary:   #4F46E5;
 $success:   #06D6A0;
 $warning:   #FFD166;
@@ -14,6 +9,9 @@ $border-radius: .375rem;
 $border-radius-sm: .25rem;
 $border-radius-lg: .5rem;
 $border-radius-xl: 1rem;
+
+@import "components/index";
+@import "pages/index";
 
 .primary {
   color: $primary;
