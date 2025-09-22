@@ -3,7 +3,7 @@
       <% therapists.each do |therapist| %>
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="card shadow-sm h-100">
-            <%= link_to therapist do %>
+            <%= link_to therapist, data: { turbo: false } do %>
               <% if therapist.photo.attached? %>
                 <%= cl_image_tag therapist.photo.key, class: "card-img" %>
               <% else %>
