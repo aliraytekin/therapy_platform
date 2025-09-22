@@ -22,17 +22,21 @@ class Session < ApplicationRecord
       availability.destroy!
 
       if availability.start_time < start_time
-        therapist.availabilities.create!(
-          start_time: availability.start_time,
-          end_time: start_time
-        )
+        if (start_time - availability.start_time) >= 30.minutes
+          therapist.availabilities.create!(
+            start_time: availability.start_time,
+            end_time: start_time
+          )
+        end
       end
 
       if availability.end_time > end_time
-        therapist.availabilities.create!(
-          start_time: end_time,
-          end_time: availability.end_time
-        )
+        if (availability.end_time - end_time) >= 30.minutes
+          therapist.availabilities.create!(
+            start_time: end_time,
+            end_time: availability.end_time
+          )
+        end
       end
     end
   end

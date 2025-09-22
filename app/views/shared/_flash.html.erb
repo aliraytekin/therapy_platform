@@ -1,7 +1,9 @@
-<% flash.each do |key, message| %>
-  <% next if message.blank? %>
-  <div class="alert alert-<%= key == "notice" ? "success" : "danger" %> alert-dismissible fade show mt-3" role="alert">
-    <%= message %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-<% end %>
+<div class="container">
+  <% flash.each do |key, message| %>
+    <% next if message.blank? %>
+    <div class="alert alert-<%= key == "notice" ? "success" : "danger" %> alert-dismissible fade show mt-3" role="alert">
+      <%= message %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+</div>
