@@ -37,8 +37,7 @@ class SessionsController < ApplicationController
   private
 
   def set_therapist_data
-    @availabilities = @therapist.availabilities.order(:start_time)
-    @session.availabilities = @availabilities
+    @availabilities = @therapist.availabilities.order(:start_time).where(booked: false)
     @disabled_slots = @therapist.disabled_slots
   end
 
