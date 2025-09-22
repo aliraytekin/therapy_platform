@@ -17,6 +17,6 @@ class TherapistsController < ApplicationController
     @therapist = Therapist.find(params[:id])
     @session = Session.new
     @availabilities = @therapist.availabilities.order(:start_time).where(booked: false)
-    @disabled_slots = @therapist.disabled_slots
+    @enabled_slots = @therapist.enabled_slots
   end
 end
