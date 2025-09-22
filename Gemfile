@@ -81,3 +81,4 @@ gem "cloudinary"
 gem "httpparty"
 gem "pexels"
 gem 'kaminari'
+gem "ostruct"

@@ -2,13 +2,15 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "controllers/application"
+import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
+eagerLoadControllersFrom("controllers", application)
 
-import AutosubmitController from "./autosubmit_controller"
+import AutosubmitController from "controllers/autosubmit_controller"
 application.register("autosubmit", AutosubmitController)
 
-import FlatpickrController from "./flatpickr_controller"
+import FlatpickrController from "controllers/flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
-import LocalTimeController from "./local_time_controller"
+import LocalTimeController from "controllers/local_time_controller"
 application.register("local-time", LocalTimeController)
