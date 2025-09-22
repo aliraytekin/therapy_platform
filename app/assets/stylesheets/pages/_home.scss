@@ -1,0 +1,28 @@
+.gradient-flow {
+  margin: 0;
+  height: 100%;
+  background: linear-gradient(-45deg, #a2d2ff, #cdb4db, #bde0fe, #ffafcc);
+  background-size: 200% 200%;
+  animation: gradientFlow 20s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}

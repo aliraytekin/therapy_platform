@@ -25,18 +25,20 @@ class Therapist < ApplicationRecord
 
   def disabled_slots
     slots = availabilities.order(:start_time)
-
     return [] if slots.empty?
 
     disabled = []
-    current_start = slots.first.start_time.beginning_of_day
-    last_end      = slots.last.end_time.end_of_day
+    current_start = slots.first.start_time.utc.beginning_of_day
+    last_end      = slots.last.end_time.utc.end_of_day
 
     slots.each do |slot|
-      if slot.start_time > current_start
-        disabled << { from: current_start.iso8601, to: slot.start_time.iso8601 }
+      start_time = slot.start_time.utc
+      end_time   = slot.end_time.utc
+
+      if start_time > current_start
+        disabled << { from: current_start.iso8601, to: start_time.iso8601 }
       end
-      current_start = slot.end_time
+      current_start = end_time
     end
 
     if current_start < last_end

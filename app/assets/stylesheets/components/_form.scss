@@ -1,0 +1,21 @@
+.signup-form {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.signup-form .form-control {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  transition: all 0.2s ease-in-out;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+  }
+}
+
+.signup-form h2 {
+  color: $primary;
+  font-weight: 700;
+}

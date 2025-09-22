@@ -20,7 +20,10 @@ export default class extends Controller {
       restrictions: {
         disabledTimeIntervals: disabledRanges
       },
-      localization: { format: "yyyy-MM-dd HH:mm" }
+      localization: {
+        format: "yyyy-MM-dd HH:mm",
+      }
     });
+
   }
 }

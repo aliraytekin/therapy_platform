@@ -28,12 +28,7 @@
           <ul class="list-group mb-3">
             <% @availabilities.each do |slot| %>
               <li class="list-group-item">
-                <span data-controller="local-time" class="slot-time"
-                  data-local-time-start-value="<%= slot.start_time.utc.iso8601 %>"
-                  data-local-time-end-value="<%= slot.end_time.utc.iso8601 %>">
-
-                </span>
-
+                <%= "#{slot.start_time.strftime("%A, %B %d, %Y at %I:%M %p")} -> #{slot.end_time.strftime("%I:%M %p")}" %>
               </li>
             <% end %>
           </ul>
