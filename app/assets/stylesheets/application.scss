@@ -29,3 +29,7 @@ $border-radius-xl: 1rem;
 .rounded-xl {
   border-radius: $border-radius-xl !important;
 }
+
+.hidden {
+  display: none !important;
+}

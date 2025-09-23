@@ -1,9 +1,8 @@
 <div class="container my-5" style="max-width: 500px;">
-  <h2 class="text-center mb-4">Log in</h2>
+  <h2 class="text-center mb-4 primary fw-bold">Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "signup-form p-4 shadow rounded bg-white" }) do |f| %>
 
-    <!-- Email -->
     <div class="mb-3">
       <%= f.label :email, class: "form-label fw-semibold" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-pill" %>
