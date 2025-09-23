@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @therapists = Therapist.all.page(params[:page]).per(12)
+    @therapists = Therapist.limit(3)
   end
 end

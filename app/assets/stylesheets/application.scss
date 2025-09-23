@@ -1,7 +1,8 @@
 $primary:   #4F46E5;
 $success:   #06D6A0;
 $warning:   #FFD166;
-$light:     #F8FAFC;
+$bg:        #F7F9FC;
+$bg-card:   #FFFFFF;
 $dark:      #1E293B;
 $danger:    #EF476F;
 
@@ -14,7 +15,7 @@ $border-radius-xl: 1rem;
 @import "pages/index";
 
 .primary {
-  color: $primary;
+  color: $primary !important;
 }
 
 .rounded-xs {
@@ -27,4 +28,8 @@ $border-radius-xl: 1rem;
 
 .rounded-xl {
   border-radius: $border-radius-xl !important;
+}
+
+.hidden {
+  display: none !important;
 }

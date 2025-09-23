@@ -1,5 +1,41 @@
-.card-img {
+.card-therapist {
+  padding: 20px 20px;
+  transition: transform 0.5s ease;
+}
+
+.card-therapist:hover {
+  transform: translateY(-4px);
+}
+
+.card-therapist-img {
   width: 100%;
   height: 400px;
   object-fit: cover;
+}
+
+.card-therapist-content {
+  flex: 1 1 auto !important;
+  padding-top: 1rem !important;
+}
+
+.card-therapist-title {
+  display: inline-block !important;
+  text-decoration: none !important;
+  color: $primary !important;
+}
+
+.card-therapist-title:hover {
+  color: darken($primary, 7%) !important;
+}
+
+
+.card-home{
+  background: $bg-card;
+  border-radius: $border-radius-xl;
+  padding: 20px 20px;
+  transition: transform .3s ease;
+}
+
+.card-home:hover{
+  transform: translateY(-4px);
 }

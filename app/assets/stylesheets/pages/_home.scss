@@ -26,3 +26,102 @@
   height: 100%;
   pointer-events: none;
 }
+
+
+.why-therapy{
+  position: relative;
+  padding: 72px 0;
+}
+
+.why-therapy .container{
+  width: unquote("min(1100px, 92vw)");
+  margin: 0 auto;
+  position: relative;
+}
+
+.why-therapy .grid{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  z-index: 1;
+}
+
+@media (max-width: 780px){
+  .why-therapy .grid{ grid-template-columns: 1fr; }
+}
+
+.icon-wrap{
+  width: 52px; height: 52px;
+  display: grid; place-items: center;
+  color: $primary;
+  margin-bottom: 10px;
+}
+
+.card-home h3{
+  font-size: 1.05rem;
+}
+
+.card-home p{
+  margin: 0;
+}
+
+.connectors{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: none;
+}
+
+@media (min-width: 780px) {
+  .connectors {
+    display: block;
+  }
+}
+
+.connector{
+  fill: none;
+  stroke: #4F46E5;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 850;
+  stroke-dashoffset: 850;
+  animation: draw 2400ms ease forwards;
+  animation-delay: 300ms;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .connector{
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
+@keyframes draw{
+  to { stroke-dashoffset: 0; }
+}
+
+.reveal{
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.reveal.revealed{
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.reveal-slow {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.reveal-slow.revealed {
+  opacity: 1;
+  transform: none;
+  transition: opacity 1s ease, transform 1s ease;
+}
