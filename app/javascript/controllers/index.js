@@ -14,3 +14,6 @@ application.register("flatpickr", FlatpickrController)
 
 import LocalTimeController from "controllers/local_time_controller"
 application.register("local-time", LocalTimeController)
+
+import FullcalendarController from "controllers/fullcalendar_controller"
+application.register("fullcalendar", FullcalendarController)

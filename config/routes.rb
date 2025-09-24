@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only: %i[edit update destroy]
+  resources :availabilities, only: %i[index show create update destroy]
 end
