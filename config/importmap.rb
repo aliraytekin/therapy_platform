@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "bubbles", to: "bubbles.js"
 pin "transitions", to: "transitions.js"
 pin "flatpickr" # @4.6.13
+pin "kute.js" # @2.2.4

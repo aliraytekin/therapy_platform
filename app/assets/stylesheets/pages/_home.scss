@@ -34,7 +34,6 @@
 }
 
 .why-therapy .container{
-  width: min(1100px);
   margin: 0 auto;
   position: relative;
 }
@@ -126,7 +125,7 @@
   transition: opacity 1s ease, transform 1s ease;
 }
 
-.wave-container {
+.wave {
   position: relative;
   width: 100%;
   overflow: hidden;
