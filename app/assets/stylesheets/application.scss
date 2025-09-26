@@ -14,8 +14,9 @@ $border-radius-xl: 1rem;
 @import "components/index";
 @import "pages/index";
 
-body, html {
+body {
   overflow-x: hidden;
+  margin: 0;
 }
 
 .primary {

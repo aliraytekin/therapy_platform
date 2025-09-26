@@ -137,3 +137,35 @@ svg {
   width: 100%;
   height: auto;
 }
+
+#therapy_type {
+  display: flex;
+
+}
+
+#therapy_type .content {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#therapy_type img {
+  width: 40%;
+}
+
+#therapy_type .content:nth-child(1) {
+  background-color: #a2d2ff;
+}
+
+#therapy_type .content:nth-child(2) {
+  background-color: #cdb4db;
+}
+
+#therapy_type .content:nth-child(3) {
+  background-color: #bde0fe;
+}
+
+#therapy_type .content:nth-child(4) {
+  background-color: #a2d2ff;
+}
