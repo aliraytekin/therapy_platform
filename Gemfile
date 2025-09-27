@@ -82,3 +82,5 @@ gem "httpparty"
 gem "pexels"
 gem 'kaminari'
 gem "ostruct"
+gem "foreman", "~> 0.87"
+gem "vite_rails", "~> 3.0"

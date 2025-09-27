@@ -1,6 +1,5 @@
 .gradient-flow {
   margin: 0;
-  height: 100%;
   background: linear-gradient(-45deg, #a2d2ff, #cdb4db, #bde0fe, #ffafcc);
   background-size: 200% 200%;
   animation: gradientFlow 20s ease infinite;
@@ -29,8 +28,14 @@
 
 
 .why-therapy{
-  position: relative;
   padding: 72px 0;
+  height: 100%;
+}
+
+@media (min-width: 780px) {
+  .why-therapy {
+    height: 100vh;
+  }
 }
 
 .why-therapy .container{
@@ -46,8 +51,8 @@
   z-index: 1;
 }
 
-@media (max-width: 780px){
-  .why-therapy .grid{ grid-template-columns: 1fr; }
+@media (max-width: 780px) {
+  .why-therapy .grid { grid-template-columns: 1fr; }
 }
 
 .icon-wrap{
@@ -137,3 +142,43 @@ svg {
   width: 100%;
   height: auto;
 }
+
+.pin-spacer {
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  z-index: 10;
+}
+
+@media (min-width: 780px) {
+  .pin-spacer {
+    display: block;
+  }
+}
+
+.slides {
+  display: flex;
+  width: 400%;
+  height: 100%;
+}
+
+.slides .content {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-left  {
+  width: 40%;
+  font-size: 2rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.content-right { width: 60%; height: 100%; object-fit: cover; }
+
+.content:nth-child(1) { background:#a2d2ff; }
+.content:nth-child(2) { background:#cdb4db; }
+.content:nth-child(3) { background:#bde0fe; }
+.content:nth-child(4) { background:#a2d2ff; }
