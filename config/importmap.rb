@@ -9,3 +9,4 @@ pin "bubbles", to: "bubbles.js"
 pin "transitions", to: "transitions.js"
 pin "flatpickr" # @4.6.13
 pin "kute.js" # @2.2.4
+pin "gsap/ScrollTrigger", to: "gsap--ScrollTrigger.js" # @3.13.0

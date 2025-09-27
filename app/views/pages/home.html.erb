@@ -38,29 +38,25 @@
     </turbo-frame>
   </div>
 
-  <section id="therapy_type">
-    <div class="content">
-      <div class="content-left"></div>
-      <div class="content-right"></div>
-    </div>
-
-    <div class="content">
-      <div class="content-left"></div>
-      <div class="content-right"></div>
-    </div>
-
-    <div class="content">
-      <div class="content-left"></div>
-      <div class="content-right"></div>
-    </div>
-
-    <div class="content">
-      <div class="content-left">
-
+  <section id="therapy_type" data-controller="gsap">
+    <div class="pin-spacer">
+      <div data-gsap-target="slides" class="slides">
+        <div class="content">
+          <div class="content-left">Rebuild trust and improve communication with your partner. Together, learn new ways to reconnect and move forward as a couple.</div>
+          <%= image_tag("couple_therapy.jpg", class: "content-right") %>
+        </div>
+        <div class="content">
+          <div class="content-left">Bring harmony back to everyday life at home. Strengthen bonds and create a space where everyone feels safe.</div>
+          <%= image_tag("family_therapy.jpg", class: "content-right") %>
+        </div>
+        <div class="content">
+          <div class="content-left">Release the stress that keeps you awake at night. Discover calming routines that guide your mind gently into rest.</div>
+          <%= image_tag("sleep_therapy.jpg", class: "content-right") %>
+        </div>
       </div>
-      <div class="content-right"></div>
     </div>
   </section>
+
 
   <div data-toggle-on-empty-target="section" class="<%= 'hidden' if params[:query].present? %>">
     <%= render partial: "why_therapy" %>
