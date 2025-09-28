@@ -35,7 +35,42 @@
 </div>
 
 
-<section id="therapy_type" data-controller="gsap">
+<section class="circles-container" data-controller="circles-gsap">
+  <%= link_to therapists_path,
+            class: "card card-therapist rounded-xl",
+            data: { action: "mouseover->circles-gsap#onHover mouseleave->circles-gsap#onLeave",
+                    color: "#a2d2ff" } do %>
+  <%= image_tag "couples_avatar.jpg", class: "circle circles-img" %>
+  <span class="btn mt-4">Couples Therapy</span>
+  <% end %>
+
+  <%= link_to therapists_path,
+            class: "card card-therapist rounded-xl",
+            data: { action: "mouseover->circles-gsap#onHover mouseleave->circles-gsap#onLeave",
+                    color: "#cdb4db" } do %>
+  <%= image_tag "family_avatar.jpg", class: "circle circles-img" %>
+  <span class="btn mt-4">Family Therapy</span>
+  <% end %>
+
+  <%= link_to therapists_path,
+            class: "card card-therapist rounded-xl",
+            data: { action: "mouseover->circles-gsap#onHover mouseleave->circles-gsap#onLeave",
+                    color: "#bde0fe" } do %>
+  <%= image_tag "sleep_avatar.jpg", class: "circle circles-img" %>
+  <span class="btn mt-4">Sleep Therapy</span>
+  <% end %>
+
+  <%= link_to therapists_path,
+            class: "card card-therapist rounded-xl",
+            data: { action: "mouseover->circles-gsap#onHover mouseleave->circles-gsap#onLeave",
+                    color: "#ffafcc" } do %>
+  <%= image_tag "grief_therapy.webp", class: "circle circles-img" %>
+  <span class="btn mt-4">Grief Therapy</span>
+  <% end %>
+</section>
+
+
+<section id="therapy_type" data-controller="therapy-gsap">
   <div class="pin-spacer">
     <div class="slides">
       <div class="content">

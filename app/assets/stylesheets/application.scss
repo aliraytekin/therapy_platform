@@ -17,6 +17,12 @@ $border-radius-xl: 1rem;
 body {
   margin: 0;
   font-family: "PT sans", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
 }
 
 .f-size-xll {

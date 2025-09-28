@@ -18,5 +18,8 @@ application.register("local-time", LocalTimeController)
 import FullcalendarController from "controllers/fullcalendar_controller"
 application.register("fullcalendar", FullcalendarController)
 
-import GsapController from "controllers/gsap_controller"
-application.register("gsap", GsapController)
+import TherapyGsapController from "controllers/therapy_gsap_controller"
+application.register("therapy_gsap", TherapyGsapController)
+
+import CirclesGsapController from "controllers/circles_gsap_controller"
+application.register("circles_gsap", CirclesGsapController)

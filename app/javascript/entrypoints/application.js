@@ -13,7 +13,8 @@
 
 import { Application } from "@hotwired/stimulus"
 
-import GsapController       from "../controllers/gsap_controller"
+import TherapyGsapController from "../controllers/therapy_gsap_controller"
+import CirclesGsapController from "../controllers/circles_gsap_controller"
 // import AutosubmitController from "../controllers/autosubmit_controller"
 import FlatpickrController  from "../controllers/flatpickr_controller"
 import LocalTimeController  from "../controllers/local_time_controller"
@@ -23,11 +24,11 @@ import "../transitions"
 
 const application = Application.start()
 
-application.register("gsap", GsapController)
+application.register("therapy-gsap", TherapyGsapController)
+application.register("circles-gsap", CirclesGsapController)
 // application.register("autosubmit", AutosubmitController)
 application.register("flatpickr", FlatpickrController)
 application.register("local-time", LocalTimeController)
 application.register("fullcalendar", FullcalendarController)
-application.register("bubbles", BubblesController)
 
 window.Stimulus = application
