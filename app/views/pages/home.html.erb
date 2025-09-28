@@ -1,64 +1,60 @@
 <canvas id="bubbles"></canvas>
 
-<div data-controller="toggle-on-empty">
-  <div class="gradient-flow text-white py-5">
-    <div class="container text-center">
-      <h1 class="display-4 fw-bold mb-3">
-        Your mental health, your safe space.
-      </h1>
-      <p class="lead mb-4">
-        Find the right therapist and book your session in minutes.
-      </p>
+<div class="gradient-flow text-white py-5">
+  <div class="container text-center">
+    <h1 class="display-4 fw-bold mb-3">
+      Your mental health, your safe space.
+    </h1>
+    <p class="lead mb-4">
+      Find the right therapist and book your session in minutes.
+    </p>
 
-      <div class="container my-4">
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-8 col-lg-6">
-            <%= form_with url: therapists_path, method: :get, data: { turbo_frame: "therapists_results" }, class: "d-flex gap-2" do |f| %>
-              <%= f.text_field :query,
-                        value: params[:query],
-                        class: "form-control rounded-xl",
-                        data: { controller: "autosubmit",
-                                action: "input->autosubmit#input input->toggle-on-empty#toggle",
-                                toggle_on_empty_target: "input" },
-                        placeholder: "Search by name, specialty, or location..." %>
-              <button class="btn secondary-button px-4" type="submit">
-                Search
-              </button>
-            <% end %>
-          </div>
+    <div class="container my-4">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <%= form_with url: therapists_path, method: :get, data: { turbo_frame: "therapists_results" }, class: "d-flex gap-2" do |f| %>
+            <%= f.text_field :query,
+                      value: params[:query],
+                      class: "form-control rounded-xl",
+                      data: { controller: "autosubmit toggle-on-empty",
+                              action: "input->autosubmit#input input->toggle-on-empty#toggle",
+                              toggle_on_empty_target: "input" },
+                      placeholder: "Search by name, specialty, or location..." %>
+            <button class="btn secondary-button px-4" type="submit">
+              Search
+            </button>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="container mt-4 mb-2">
-    <turbo-frame id="therapists_results">
-      <h3 class="text-center mb-3">Our recommended therapists</h3>
-      <%= render partial: "therapists/list", locals: { therapists: @therapists } %>
-    </turbo-frame>
-  </div>
+<div class="container mt-4 mb-2">
+  <%= render partial: "therapists/list", locals: { therapists: @therapists } %>
+</div>
 
-  <section id="therapy_type" data-controller="gsap">
-    <div class="pin-spacer">
-      <div data-gsap-target="slides" class="slides">
-        <div class="content">
-          <div class="content-left">Rebuild trust and improve communication with your partner. Together, learn new ways to reconnect and move forward as a couple.</div>
-          <%= image_tag("couple_therapy.jpg", class: "content-right") %>
-        </div>
-        <div class="content">
-          <div class="content-left">Bring harmony back to everyday life at home. Strengthen bonds and create a space where everyone feels safe.</div>
-          <%= image_tag("family_therapy.jpg", class: "content-right") %>
-        </div>
-        <div class="content">
-          <div class="content-left">Release the stress that keeps you awake at night. Discover calming routines that guide your mind gently into rest.</div>
-          <%= image_tag("sleep_therapy.jpg", class: "content-right") %>
-        </div>
+
+<section id="therapy_type" data-controller="gsap">
+  <div class="pin-spacer">
+    <div class="slides">
+      <div class="content">
+        <div class="content-left">Rebuild trust and improve communication with your partner. Together, learn new ways to reconnect and move forward as a couple.</div>
+        <%= image_tag("couple_therapy.jpg", class: "content-right") %>
+      </div>
+      <div class="content">
+        <div class="content-left">Bring harmony back to everyday life at home. Strengthen bonds and create a space where everyone feels safe.</div>
+        <%= image_tag("family_therapy.jpg", class: "content-right") %>
+      </div>
+      <div class="content">
+        <div class="content-left">Release the stress that keeps you awake at night. Discover calming routines that guide your mind gently into rest.</div>
+        <%= image_tag("sleep_therapy.jpg", class: "content-right") %>
       </div>
     </div>
-  </section>
-
-
-  <div data-toggle-on-empty-target="section" class="<%= 'hidden' if params[:query].present? %>">
-    <%= render partial: "why_therapy" %>
   </div>
+</section>
+
+
+<div data-toggle-on-empty-target="section" class="<%= 'hidden' if params[:query].present? %>">
+  <%= render partial: "why_therapy" %>
 </div>
