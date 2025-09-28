@@ -11,8 +11,6 @@
     </div>
   <% end %>
 
-  <turbo-frame id="therapists_results">
-    <%= render partial: "therapists/list", locals: { therapists: @therapists } %>
-  </turbo-frame>
+  <%= render partial: "therapists/list", locals: { therapists: @therapists } %>
 
 </div>

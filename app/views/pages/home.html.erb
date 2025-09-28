@@ -31,10 +31,7 @@
 </div>
 
 <div class="container mt-4 mb-2">
-  <turbo-frame id="therapists_results">
-    <h3 class="text-center mb-3">Our recommended therapists</h3>
-    <%= render partial: "therapists/list", locals: { therapists: @therapists } %>
-  </turbo-frame>
+  <%= render partial: "therapists/list", locals: { therapists: @therapists } %>
 </div>
 
 

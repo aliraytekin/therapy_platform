@@ -14,7 +14,7 @@
 import { Application } from "@hotwired/stimulus"
 
 import GsapController       from "../controllers/gsap_controller"
-import AutosubmitController from "../controllers/autosubmit_controller"
+// import AutosubmitController from "../controllers/autosubmit_controller"
 import FlatpickrController  from "../controllers/flatpickr_controller"
 import LocalTimeController  from "../controllers/local_time_controller"
 import FullcalendarController from "../controllers/fullcalendar_controller"
@@ -24,7 +24,7 @@ import "../transitions"
 const application = Application.start()
 
 application.register("gsap", GsapController)
-application.register("autosubmit", AutosubmitController)
+// application.register("autosubmit", AutosubmitController)
 application.register("flatpickr", FlatpickrController)
 application.register("local-time", LocalTimeController)
 application.register("fullcalendar", FullcalendarController)
