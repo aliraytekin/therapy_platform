@@ -116,7 +116,7 @@
 .reveal.revealed{
   opacity: 1;
   transform: none;
-  transition: opacity 1.5s ease, transform 1.5s ease;
+  transition: opacity 2s ease, transform 2s ease;
 }
 
 .reveal-slow {
@@ -127,7 +127,7 @@
 .reveal-slow.revealed {
   opacity: 1;
   transform: none;
-  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .wave {
@@ -147,7 +147,8 @@ svg {
   height: 100vh;
   overflow: hidden;
   display: none;
-  z-index: 10;
+  z-index: 5;
+  position: relative;
 }
 
 @media (min-width: 780px) {
