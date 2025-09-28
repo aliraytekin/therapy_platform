@@ -72,7 +72,7 @@ export default class extends Controller {
         scrollTrigger: {
           trigger: content,
           containerAnimation: mainAnim,
-          start: "left center",
+          start: "left 60%",
           toggleActions: "play none none reverse"
         }
       });
